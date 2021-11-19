@@ -12,10 +12,17 @@ const minorSale = 0.20; //1 = 100%
 const over65sale = 0.40;
 if (age < 18) { // Minorenni
     price *= (1 - minorSale);
-    console.log(price);
+    price = parseFloat(price).toFixed(2)
+    // console.log(price);
 }
 else if (age > 65) { //Over 65
     price *= (1 - over65sale);
-    console.log(price);
+    // console.log(price);
 }
 // L’output del prezzo finale va messo fuori in forma umana(con massimo due decimali, per indicare centesimi sul prezzo).Questo richiederà un minimo di ricerca.
+document.getElementById('ticket-price').innerHTML = `
+<span>Numero km: </span>${km}<br>
+<span>Anni: </span>${age}<br>
+<p>Sconti: 20% per i minorenni - 40% per gli over 65</p>
+<strong>Prezzo complessivo: </strong>${price}
+`;
